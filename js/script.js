@@ -1,6 +1,3 @@
-//
-
-
 // the data.json file data is inside an array and a variable 'data' is assigned
 let data = [
   { "day": "sun", "amount": 25.48 },
@@ -27,10 +24,25 @@ let theCurrentDay = data[dayCurrentNo].day
 // accessing the ammount from given data, returns the ammount
 let theAmmount = data[dayCurrentNo].amount
 
+// defines an empty array for all amount
+let amountArray = []
+
+// adds each amount to the array
+for (let i = 0; i < data.length; i++){
+  amountArray.push(data[i].amount)
+}
+
+// finds out the maximum number
+let maximumAmount = Math.max(...amountArray)
+
+// gets the content bar and sets its height
+let contentBar = document.querySelector('.content-bar')
+contentBar.style.height = `${maximumAmount * 3}px`
+
+// sets different background for curent day
+days[dayCurrentNo].classList.add('today')
 
 for (let i = 0; i < noOfDaysDiv; i++){
-
-  let message = ''
   
   // gets the individual day
   let individualDay = data[i].day
@@ -38,44 +50,13 @@ for (let i = 0; i < noOfDaysDiv; i++){
   // gets the individual amount on individual day
   let individualAmount = data[i].amount
 
-  let heightOfIndividualDiv = ((150 / 100) * individualAmount)
-  
-  // writes the name of each day inside the div
-  days[i].innerHTML = message + individualDay
-  
+  // sets the height for individual div
+  let heightOfIndividualDiv = ((100 / maximumAmount) * individualAmount)
+
+  // sets a data-attribute and assignes a day value
+  days[i].dataset.currentDay = individualDay
+  days[i].dataset.title = `$${individualAmount}`
+
   // sets the height of the each div
-  days[i].style.height = `${heightOfIndividualDiv}px`
-
+  days[i].style.height = `${heightOfIndividualDiv}%`
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// console.log(data[3].amount);
-
-// let date = new Date().getDay()
-
-// console.log(date);
-
-
-// const arr = [1, 2, 3];
-// const max = Math.max(...arr);
-// console.log(max);

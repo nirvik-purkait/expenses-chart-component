@@ -78,12 +78,6 @@ body{
   font-weight: 700;
 }
 
-hr {
-  width: 95%;
-  opacity: 0.1;
-  margin: auto;
-}
-
 .content-bar {
   min-height: 150px;
   display: flex;
@@ -91,20 +85,56 @@ hr {
   align-items: flex-end;
   gap: 1rem;
   text-align: center;
+  margin-top: 6rem;
 }
 
 .day {
+  position: relative;
   width: 100%;
   border-radius: 0.4rem;
   background: var(--soft-red);
-}
-
-.day::before{
-  content: '';
+  min-height: 10px;
+  cursor: pointer;
 }
 
 .day.today{
   background: var(--cyan);
+}
+
+.day:hover{
+  background: hsl(10, 50%, 70%);
+}
+
+.day.today:hover{
+  background: hsl(187, 27%, 74%);
+}
+
+.day::before {
+  content: attr(data-current-day);
+  position: absolute;
+  bottom: -2rem;
+  left: 0;
+  right: 0;
+}
+
+.day:hover::after{
+  content: attr(data-title);
+  position: absolute;
+  top: -4rem;
+  left: 50%;
+  background: var(--dark-brown);
+  color: var(--cream);
+  border-radius: 1rem;
+  font-size: 1.2rem;
+  padding: 1rem;
+  min-width: max-content;
+  transform: translateX(-50%);
+}
+
+hr {
+  width: 95%;
+  opacity: 0.5;
+  margin: 4rem auto;
 }
 
 .content-details {
