@@ -1,0 +1,139 @@
+:root{
+  --soft-red: hsl(10, 79%, 65%);
+  --cyan: hsl(186, 34%, 60%);
+  --dark-brown: hsl(25, 47%, 15%);
+  --medium-brown: hsl(28, 10%, 53%);
+  --cream: hsl(27, 66%, 92%);
+  --very-pale-orange: hsl(33, 100%, 98%);
+
+  --regular: 400;
+  --bold: 700;
+
+  font-size: 62.5%;
+  font-family: 'DM Sans', sans-serif;
+}
+
+*, *::before, *::after{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-size: 1.6rem;
+}
+
+.container{
+  padding: 0 2rem;
+  width: 100vw;
+  height: 100vh;
+  background: var(--cream);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content-wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+  flex-basis: 100%;
+  max-width: 40rem;
+}
+
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--soft-red);
+  padding: 2rem 2rem;
+  border-radius: 1.5rem;
+  color: var(--cream);
+  font-size: 1.4rem;
+}
+
+.heading .text1{
+  font-size: 1.4rem;
+}
+
+.heading .text2 {
+  font-size: 2.6rem;
+  font-weight: var(--bold);
+  margin-top: 1.2rem;
+}
+
+
+.content{
+  background: var(--very-pale-orange);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  color: var(--dark-brown);
+
+  --low-opacity: 0.5;
+}
+
+.content-title {
+  font-size: 2.6rem;
+  font-weight: 700;
+}
+
+hr {
+  width: 95%;
+  opacity: 0.1;
+  margin: auto;
+}
+
+.content-bar {
+  min-height: 150px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-end;
+  gap: 1rem;
+  text-align: center;
+}
+
+.day {
+  width: 100%;
+  border-radius: 0.4rem;
+  background: var(--soft-red);
+}
+
+.day::before{
+  content: '';
+}
+
+.day.today{
+  background: var(--cyan);
+}
+
+.content-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 3rem;
+}
+
+.content-text .text1{
+  font-size: 1.4rem;
+  opacity: var(--low-opacity);
+}
+
+.content-text .text2 {
+  font-size: 2.6rem;
+  font-weight: 700;
+  margin-top: 1rem;
+}
+
+.content-evaluation{
+  text-align: right;
+  font-size: 1.4rem;
+}
+
+.content-evaluation .text1{
+  font-weight: var(--bold);
+}
+
+.content-evaluation .text2{
+  opacity: var(--low-opacity);
+}
